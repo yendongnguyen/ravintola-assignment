@@ -1,1 +1,1 @@
-# maidoravintola
+# MAIDO Ravintola
