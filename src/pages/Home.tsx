@@ -1,27 +1,34 @@
 import { Link } from "react-router-dom";
-import MenuCategories from "../components/MenuCategories";
-import EssentialsStrip from "../components/EssentialsStrip";
+import saladBowl from "../assets/hero/salad bowl.png";
+import friedChicken from "../assets/hero/fried chicken.png";
+import bgImage from "../assets/hero/background.png";
 
 function HomePage() {
   return (
-    <>
-      <section className="hero" aria-labelledby="hero-title">
+    <section 
+      className="hero" 
+      aria-labelledby="hero-title"
+      style={{
+        backgroundImage: `url('${bgImage}')`
+      }}
+    >
+      <div className="hero-overlay"></div>
+      <div className="hero-container">
         <div className="hero-copy">
-          <p className="eyebrow">Welcome to MAIDO in Kuopio</p>
-          <h1 id="hero-title">Menu first. Booking made easy.</h1>
-          <p>
-            Browse buffet, mains, and drinks in seconds, then reserve your table with
-            a short form.
-          </p>
+          <h1 id="hero-title">
+            Savor the <br />Exquisite Flavors <br />of <span className="highlight">MAIDO</span>
+          </h1>
+          <p className="hero-subtitle">Experience Culinary Excellence in Every Bite</p>
           <Link className="cta-primary" to="/booking">
-            Book a Table
+            Reserve Your Table
           </Link>
         </div>
-      </section>
-
-      <MenuCategories />
-      <EssentialsStrip />
-    </>
+        <div className="hero-images">
+          <img src={friedChicken} alt="Fried chicken and fries" className="hero-img fried-chicken" />
+          <img src={saladBowl} alt="Fresh salad bowl" className="hero-img salad-bowl" />
+        </div>
+      </div>
+    </section>
   );
 }
 
