@@ -303,7 +303,7 @@ main {
 .fried-chicken {
   max-width: 280px;
   height: auto;
-  right: 10px;
+  right: -20px;
   bottom: 80px;
   animation-delay: 0s;
   z-index: 3;
@@ -312,7 +312,7 @@ main {
 .salad-bowl {
   max-width: 320px;
   height: auto;
-  right: 160px;
+  right: 120px;
   bottom: 0;
   animation-delay: 0.5s;
   z-index: 2;
@@ -376,13 +376,13 @@ main {
 
   .fried-chicken {
     max-width: 300px;
-    right: 20px;
+    right: 70px;
     bottom: 100px;
   }
 
   .salad-bowl {
     max-width: 400px;
-    right: 200px;
+    right: 250px;
     bottom: 0;
   }
 }
@@ -795,6 +795,9 @@ main {
 
 .our-menu-card-body {
   padding: 12px 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .our-menu-card-name {
@@ -802,15 +805,12 @@ main {
   font-weight: 700;
   letter-spacing: 0.08em;
   color: #f39c45;
-  margin: 0 0 6px;
+  margin: 0;
+  text-align: center;
 }
 
 .our-menu-card-desc {
-  font-size: 0.82rem;
-  color: #5a5a5a;
-  margin: 0;
-  line-height: 1.5;
-  text-align: center;
+  display: none;
 }
 
 .our-menu-footer {
@@ -848,7 +848,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 13px;
+  gap: 3px;
 }
 
 .our-service-text {
@@ -1294,6 +1294,205 @@ button[type="submit"]:hover:not(:disabled) {
 button[type="submit"]:disabled {
   background: rgba(17, 52, 2, 0.5);
   cursor: not-allowed;
+}
+
+/* ── FAQ Section ─────────────────────────────────────── */
+.faq-section {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  background: var(--bg);
+  padding: 64px 24px 72px;
+  position: relative;
+  overflow: hidden;
+}
+
+.faq-inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.faq-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.faq-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #113402;
+}
+
+.faq-label-line {
+  display: inline-block;
+  width: 40px;
+  height: 2px;
+  background: #113402;
+  border-radius: 2px;
+}
+
+.faq-heading {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  font-weight: 700;
+  color: #113402;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.faq-item {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #e0ead8;
+}
+
+.faq-item--open {
+  background: #e8f5e0;
+  border-color: #c8e0b8;
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 0.97rem;
+  font-weight: 600;
+  color: #113402;
+  text-align: left;
+}
+
+.faq-item--open .faq-question {
+  color: #113402;
+}
+
+.faq-answer {
+  padding: 0 24px 18px;
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ── Footer ──────────────────────────────────────────── */
+.site-footer-main {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  background: #d8e8d0;
+}
+
+.footer-inner {
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 56px 40px 40px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 36px;
+}
+
+@media (min-width: 768px) {
+  .footer-inner {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
+  }
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.footer-logo {
+  width: 130px;
+  margin-bottom: 14px;
+}
+
+.footer-address {
+  font-size: 0.82rem;
+  color: #113402;
+  margin: 0;
+  line-height: 1.8;
+  font-weight: 700;
+}
+
+.footer-col-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #113402;
+  margin-bottom: 14px;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  text-align: center;
+}
+
+.footer-link {
+  font-size: 0.88rem;
+  color: #333;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-link:hover {
+  color: #113402;
+}
+
+.footer-contact-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.footer-social-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #b8d4b0;
+  color: #113402;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, color 0.2s;
+}
+
+.footer-social-btn:hover {
+  background: #113402;
+  color: #fff;
+}
+
+.footer-bottom {
+  background: #113402;
+  text-align: center;
+  padding: 16px;
+  font-size: 0.85rem;
+  color: #fff;
 }
 
 .site-footer {

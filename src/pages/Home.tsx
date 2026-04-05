@@ -24,6 +24,7 @@ import feedback6 from "../assets/hero/feedback-6.jpeg";
 import feedback7 from "../assets/hero/feedback-7.jpeg";
 import feedbackWall from "../assets/hero/feedback-wall.jpeg";
 import heroBg from "../assets/hero/background.png";
+import bookingBg from "../assets/hero/background-booking.jpg";
 
 function HomePage() {
   return (
@@ -161,6 +162,7 @@ function HomePage() {
       <OurServiceSection />
       <FeedbackSection />
       <BookingBanner />
+      <FAQSection />
     </>
   );
 }
@@ -342,9 +344,45 @@ function FeedbackSection() {
   );
 }
 
+const faqItems = [
+  { q: "Do I need to make a reservation?", a: "Yes, we recommend making a reservation to ensure you get a table, especially during weekends and holidays. You can book online or call us directly." },
+  { q: "Do you offer vegetarian or vegan options?", a: "Yes, we have a variety of vegetarian and vegan dishes available. Please check our menu for more details." },
+  { q: "Is parking available?", a: "Yes, there is free parking available near the restaurant. Street parking is also available on nearby streets." },
+  { q: "Do you host private events?", a: "Absolutely! We offer private dining and event hosting. Please contact us to discuss your requirements and availability." },
+  { q: "What are your opening hours?", a: "MA–TO 10:30–20:30 | PE 10:30–21:30 | LA 11:00–21:30 | SU 12:00–19:00" },
+];
+
+function FAQSection() {
+  const [open, setOpen] = useState<number | null>(0);
+  return (
+    <section className="faq-section">
+      <div className="faq-inner">
+        <div className="faq-label-row">
+          <span className="faq-label">FAQ</span>
+          <span className="faq-label-line"></span>
+        </div>
+        <h2 className="faq-heading">Frequently Asked Questions</h2>
+        <div className="faq-list">
+          {faqItems.map((item, i) => (
+            <div key={i} className={`faq-item${open === i ? " faq-item--open" : ""}`}>
+              <button className="faq-question" onClick={() => setOpen(open === i ? null : i)}>
+                <span>{item.q}</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  {open === i ? <polyline points="18 15 12 9 6 15"/> : <polyline points="6 9 12 15 18 9"/>}
+                </svg>
+              </button>
+              {open === i && <p className="faq-answer">{item.a}</p>}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function BookingBanner() {
   return (
-    <section className="booking-banner" style={{ backgroundImage: `url('${heroBg}')` }}>
+    <section className="booking-banner" style={{ backgroundImage: `url('${bookingBg}')` }}>
       <div className="booking-banner-card">
         <h2 className="booking-banner-heading">Book Your Dining Experience Today!</h2>
         <p className="booking-banner-sub">Unlock a Culinary Journey Like No Other at <span className="booking-banner-brand">MAIDO</span></p>
