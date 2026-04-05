@@ -1,0 +1,124 @@
+{
+  "skills": [
+    {
+      "name": "bmad-help",
+      "description": "Analyzes current state and recommends next BMAD workflow steps",
+      "instructions": ".github/skills/bmad-help/SKILL.md"
+    },
+    {
+      "name": "bmad-brainstorming",
+      "description": "Facilitate interactive brainstorming sessions using diverse creative techniques",
+      "instructions": ".github/skills/bmad-brainstorming/SKILL.md"
+    },
+    {
+      "name": "bmad-advanced-elicitation",
+      "description": "Push the LLM to reconsider, refine, and improve its recent output",
+      "instructions": ".github/skills/bmad-advanced-elicitation/SKILL.md"
+    },
+    {
+      "name": "bmad-distillator",
+      "description": "Lossless LLM-optimized compression of source documents",
+      "instructions": ".github/skills/bmad-distillator/SKILL.md"
+    },
+    {
+      "name": "bmad-editorial-review-prose",
+      "description": "Clinical copy-editor that reviews text for communication issues",
+      "instructions": ".github/skills/bmad-editorial-review-prose/SKILL.md"
+    },
+    {
+      "name": "bmad-editorial-review-structure",
+      "description": "Structural editor that proposes cuts, reorganization, and simplification",
+      "instructions": ".github/skills/bmad-editorial-review-structure/SKILL.md"
+    },
+    {
+      "name": "bmad-party-mode",
+      "description": "Orchestrates group discussions between all installed BMAD agents",
+      "instructions": ".github/skills/bmad-party-mode/SKILL.md"
+    },
+    {
+      "name": "bmad-review-adversarial-general",
+      "description": "Perform a Cynical Review and produce a findings report",
+      "instructions": ".github/skills/bmad-review-adversarial-general/SKILL.md"
+    },
+    {
+      "name": "bmad-review-edge-case-hunter",
+      "description": "Walk every branching path and boundary condition - exhaustive edge-case analysis",
+      "instructions": ".github/skills/bmad-review-edge-case-hunter/SKILL.md"
+    },
+    {
+      "name": "bmad-create-prd",
+      "description": "Create a Product Requirements Document from scratch",
+      "instructions": ".github/skills/bmad-create-prd/SKILL.md"
+    },
+    {
+      "name": "bmad-create-ux-design",
+      "description": "Plan UX patterns and design specifications",
+      "instructions": ".github/skills/bmad-create-ux-design/SKILL.md"
+    },
+    {
+      "name": "bmad-create-architecture",
+      "description": "Create architecture solution design decisions",
+      "instructions": ".github/skills/bmad-create-architecture/SKILL.md"
+    },
+    {
+      "name": "bmad-create-epics-and-stories",
+      "description": "Break requirements into epics and user stories",
+      "instructions": ".github/skills/bmad-create-epics-and-stories/SKILL.md"
+    },
+    {
+      "name": "bmad-sprint-planning",
+      "description": "Kick off implementation by producing a sprint plan",
+      "instructions": ".github/skills/bmad-sprint-planning/SKILL.md"
+    },
+    {
+      "name": "bmad-create-story",
+      "description": "Prepare and validate user stories for development",
+      "instructions": ".github/skills/bmad-create-story/SKILL.md"
+    },
+    {
+      "name": "bmad-dev-story",
+      "description": "Story cycle: Execute story implementation tasks and tests",
+      "instructions": ".github/skills/bmad-dev-story/SKILL.md"
+    },
+    {
+      "name": "bmad-code-review",
+      "description": "Peer code review for story validation",
+      "instructions": ".github/skills/bmad-code-review/SKILL.md"
+    },
+    {
+      "name": "bmad-agent-analyst",
+      "description": "Strategic business analyst and requirements expert (Mary)",
+      "instructions": ".github/skills/bmad-agent-analyst/SKILL.md"
+    },
+    {
+      "name": "bmad-agent-tech-writer",
+      "description": "Technical documentation specialist (Paige)",
+      "instructions": ".github/skills/bmad-agent-tech-writer/SKILL.md"
+    },
+    {
+      "name": "bmad-agent-pm",
+      "description": "Product manager for PRD creation (John)",
+      "instructions": ".github/skills/bmad-agent-pm/SKILL.md"
+    },
+    {
+      "name": "bmad-agent-ux-designer",
+      "description": "UX designer and UI specialist (Sally)",
+      "instructions": ".github/skills/bmad-agent-ux-designer/SKILL.md"
+    },
+    {
+      "name": "bmad-agent-architect",
+      "description": "System architect and technical design leader (Winston)",
+      "instructions": ".github/skills/bmad-agent-architect/SKILL.md"
+    },
+    {
+      "name": "bmad-agent-dev",
+      "description": "Developer agent for story execution (Amelia)",
+      "instructions": ".github/skills/bmad-agent-dev/SKILL.md"
+    },
+    {
+      "name": "bmad-agent-qa",
+      "description": "QA engineer for test automation (Quinn)",
+      "instructions": ".github/skills/bmad-agent-qa/SKILL.md"
+    }
+  ]
+}
