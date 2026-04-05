@@ -15,6 +15,15 @@ import menuFriedFood from "../assets/hero/our-menu-fried-food.jpeg";
 import menuNoodle from "../assets/hero/our-menu-noodle.jpeg";
 import menuDumpling from "../assets/hero/our-menu-dumpling.jpeg";
 import serviceStaff from "../assets/hero/our-service-staff.png";
+import feedback1 from "../assets/hero/feedback-1.jpeg";
+import feedback2 from "../assets/hero/feedback-2.jpeg";
+import feedback3 from "../assets/hero/feedback-3.jpeg";
+import feedback4 from "../assets/hero/feedback-4.jpeg";
+import feedback5 from "../assets/hero/feedback-5.jpeg";
+import feedback6 from "../assets/hero/feedback-6.jpeg";
+import feedback7 from "../assets/hero/feedback-7.jpeg";
+import feedbackWall from "../assets/hero/feedback-wall.jpeg";
+import heroBg from "../assets/hero/background.png";
 
 function HomePage() {
   return (
@@ -151,6 +160,7 @@ function HomePage() {
       <OurMenuSection />
       <OurServiceSection />
       <FeedbackSection />
+      <BookingBanner />
     </>
   );
 }
@@ -269,7 +279,7 @@ function OurMenuSection() {
 const testimonials = [
   { name: "Sarah Johnson", role: "Student", text: "MAIDO offers an extraordinary dining experience. The food is exquisite, and the ambiance is perfect for a special night out. Highly recommended!", color: "#4a90d9" },
   { name: "Michael Lee", role: "Job holder", text: "From the moment we walked in, we were treated like royalty. The service was impeccable, and the dishes were masterpieces. Can't wait to come back!", color: "#888" },
-  { name: "Emily Davis", role: "Reporter", text: "MAIDO has become our go-to place for celebrations. The chef's tasting menu is a culinary journey that never disappoints.", color: "#f39c45" },
+  { name: "Anh Tran", role: "Student", text: "MAIDO has become our go-to place for celebrations. The chef's tasting menu is a culinary journey that never disappoints.", color: "#f39c45" },
   { name: "Tommi Virtanen", role: "Regular Guest", text: "Amazing buffet with so many choices. Fresh food, friendly staff and great atmosphere. We come here every weekend!", color: "#27ae60" },
   { name: "Aino Mäkinen", role: "Food Blogger", text: "The sushi and teppanyaki are absolutely world-class. Every visit feels like a new adventure. Truly exceptional quality.", color: "#c0392b" },
 ];
@@ -318,13 +328,29 @@ function FeedbackSection() {
           })}
         </div>
 
-        {/* Photo collage grid */}
-        <div className="feedback-photo-grid">
-          {Array.from({ length: 8 }).map((_, i) => (
-            <div key={i} className="feedback-photo-cell" style={{ background: `hsl(${40 + i * 15}, 60%, ${75 + (i % 3) * 5}%)` }}>
-              <span className="feedback-photo-note">✍ {["Kiitos!", "Love it!", "Amazing!", "So good!", "Will be back!", "Suosittelemme!", "Delicious!", "Thank you!"][i]}</span>
-            </div>
-          ))}
+        {/* Photo carousel */}
+        <div className="feedback-carousel-wrap">
+          <div className="feedback-carousel-track">
+            {[feedback1, feedback2, feedback3, feedback4, feedback5, feedback6, feedback7, feedbackWall,
+              feedback1, feedback2, feedback3, feedback4, feedback5, feedback6, feedback7, feedbackWall].map((img, i) => (
+              <div key={i} className="feedback-carousel-item" style={{ backgroundImage: `url('${img}')`, backgroundSize: "cover", backgroundPosition: "center" }}></div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function BookingBanner() {
+  return (
+    <section className="booking-banner" style={{ backgroundImage: `url('${heroBg}')` }}>
+      <div className="booking-banner-card">
+        <h2 className="booking-banner-heading">Book Your Dining Experience Today!</h2>
+        <p className="booking-banner-sub">Unlock a Culinary Journey Like No Other at <span className="booking-banner-brand">MAIDO</span></p>
+        <div className="booking-banner-form">
+          <input className="booking-banner-input" type="email" placeholder="Enter your email address" />
+          <Link to="/booking" className="booking-banner-btn">Reserve Now</Link>
         </div>
       </div>
     </section>
