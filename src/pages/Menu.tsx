@@ -9,10 +9,10 @@ import heroBg from "../assets/hero/background.png";
 
 /* ── Category images (using existing assets as thumbnails) ── */
 const catImages = {
-  Appetizers: menuDumpling,
+  Appetizers: "https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=400&fit=crop&auto=format",
   "Main Courses": menuSteamTable,
-  Desserts: menuFriedFood,
-  Beverages: menuNoodle,
+  Desserts: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&h=400&fit=crop&auto=format",
+  Beverages: "https://images.unsplash.com/photo-1554866585-cd94860890b7?w=400&h=400&fit=crop&auto=format",
 };
 
 /* ── Menu data ─────────────────────────────────────────────── */
