@@ -333,6 +333,6 @@ export const translations = {
       reserve: 'Varaa',
     },
   },
-} as const;
+};
 
 export type Translations = typeof translations.en;
