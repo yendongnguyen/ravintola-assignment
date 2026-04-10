@@ -1,5 +1,6 @@
 import { Route, Routes, useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { LanguageProvider } from "./i18n/LanguageContext";
 import Header from "./components/Header";
 import HomePage from "./pages/Home";
 import BookingPage from "./pages/Booking";
@@ -43,6 +44,7 @@ function ScrollReveal() {
 
 function App() {
   return (
+    <LanguageProvider>
     <div className="site-shell">
       <ScrollToTop />
       <ScrollReveal />
@@ -57,6 +59,7 @@ function App() {
       </main>
       <Footer />
     </div>
+    </LanguageProvider>
   );
 }
 

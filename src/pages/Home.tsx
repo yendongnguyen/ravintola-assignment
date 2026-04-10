@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useLanguage } from "../i18n/LanguageContext";
 import LazyImage from "../components/LazyImage";
 import LazyBgDiv from "../components/LazyBgDiv";
 import saladBowl from "../assets/hero/salad bowl.png";
@@ -29,6 +30,7 @@ import heroBg from "../assets/hero/background.png";
 import bookingBg from "../assets/hero/background-booking.jpg";
 
 function HomePage() {
+  const { t } = useLanguage();
   return (
     <>
       <section 
@@ -68,11 +70,11 @@ function HomePage() {
         <div className="hero-container">
           <div className="hero-copy">
             <h1 id="hero-title">
-              Savor the <br />Exquisite Flavors <br />of <span className="highlight">MAIDO</span>
+              {t.hero.line1} <br />{t.hero.line2} <br />{t.hero.line3} <span className="highlight">MAIDO</span>
             </h1>
-            <p className="hero-subtitle">Experience Culinary Excellence in Every Bite</p>
+            <p className="hero-subtitle">{t.hero.subtitle}</p>
             <Link className="cta-primary" to="/booking">
-              Reserve Your Table
+              {t.hero.cta}
             </Link>
           </div>
           <div className="hero-images">
@@ -95,59 +97,53 @@ function HomePage() {
         <div className="about-content">
           <p className="about-label">
             <span className="about-label-line"></span>
-            ABOUT US
+            {t.about.label}
           </p>
           <h2 id="about-title" className="about-heading">
-            About <span className="about-accent">MAIDO</span> Ravintola
+            {t.about.heading} <span className="about-accent">MAIDO</span> {t.about.headingRest}
           </h2>
           <p className="about-desc">
-            Founded in 2025, MAIDO is dedicated to providing an exceptional dining experience through innovative cuisine and impeccable service.
+            {t.about.desc}
           </p>
           <div className="about-stats">
             <div className="about-stat">
               <span className="about-stat-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#113402" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
               </span>
-              <span className="about-stat-text">30+ Popular Testy</span>
+              <span className="about-stat-text">{t.about.stat1}</span>
             </div>
             <div className="about-stat">
               <span className="about-stat-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#113402" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
               </span>
-              <span className="about-stat-text">4215+ Satisfied</span>
+              <span className="about-stat-text">{t.about.stat2}</span>
             </div>
             <div className="about-stat">
               <span className="about-stat-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#113402" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
               </span>
-              <span className="about-stat-text">We've 19+ Years Of</span>
+              <span className="about-stat-text">{t.about.stat3}</span>
             </div>
             <div className="about-stat">
               <span className="about-stat-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#113402" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
               </span>
-              <span className="about-stat-text">49+ Food Items</span>
+              <span className="about-stat-text">{t.about.stat4}</span>
             </div>
           </div>
-          <Link className="about-cta" to="/about">Explore More</Link>
+          <Link className="about-cta" to="/about">{t.about.cta}</Link>
         </div>
       </section>
 
       <section className="buffet-section" id="buffet" aria-labelledby="buffet-title">
         <div className="buffet-header">
-          <p className="buffet-label">ABOUT OUR FOOD</p>
-          <h2 id="buffet-title" className="buffet-title">Our Buffet</h2>
+          <p className="buffet-label">{t.buffet.label}</p>
+          <h2 id="buffet-title" className="buffet-title">{t.buffet.heading}</h2>
         </div>
         <div className="buffet-body">
           <LazyBgDiv bgUrl={buffetBeef} className="buffet-circle-photo buffet-photo-left" />
           <ul className="buffet-list">
-            {[
-              "Teppanjaki",
-              "Grilled salmon with green onion oil",
-              "All-you-can-eat sushi buffet",
-              "Warm and delicious freshly heated dishes",
-              "Create your own handmade noodles",
-            ].map((item) => (
+            {t.buffet.items.map((item) => (
               <li key={item} className="buffet-item">
                 <Link to="/menu">
                   <span>{item}</span>
@@ -168,8 +164,6 @@ function HomePage() {
     </>
   );
 }
-
-const menuCategories = ["Main Courses", "Appetizers", "Beverages", "Desserts"];
 
 const menuItems: Record<string, { name: string; desc: string; color?: string; img?: string }[]> = {
   "Main Courses": [
@@ -206,23 +200,22 @@ const menuItems: Record<string, { name: string; desc: string; color?: string; im
   ],
 };
 
-function OurMenuSection() {
-  const [activeCategory, setActiveCategory] = useState("Main Courses");
-  const [page, setPage] = useState(0);
-  const items = menuItems[activeCategory];
-  const totalPages = Math.ceil(items.length / 6);
+const categoryKeys = ["Main Courses", "Appetizers", "Beverages", "Desserts"] as const;
+type CategoryKey = typeof categoryKeys[number];
 
-  function handleCategory(cat: string) {
-    setActiveCategory(cat);
-    setPage(0);
-  }
+function OurMenuSection() {
+  const { t } = useLanguage();
+  const [activeCatIdx, setActiveCatIdx] = useState(0);
+  const [page, setPage] = useState(0);
+  const items = menuItems[categoryKeys[activeCatIdx]];
+  const totalPages = Math.ceil(items.length / 6);
 
   return (
     <section className="our-menu-section" id="menu" aria-labelledby="our-menu-title">
       <div className="our-menu-top">
         <div>
-          <p className="our-menu-label">OUR MENU</p>
-          <h2 id="our-menu-title" className="our-menu-heading">Our Exquisite Menu</h2>
+          <p className="our-menu-label">{t.ourMenu.label}</p>
+          <h2 id="our-menu-title" className="our-menu-heading">{t.ourMenu.heading}</h2>
         </div>
         <div className="our-menu-arrows">
           <button
@@ -245,11 +238,11 @@ function OurMenuSection() {
       </div>
       <div className="our-menu-body">
         <nav className="our-menu-sidebar" aria-label="Menu categories">
-          {menuCategories.map((cat) => (
+          {t.ourMenu.categories.map((cat, i) => (
             <button
               key={cat}
-              className={`our-menu-cat-btn${activeCategory === cat ? " active" : ""}`}
-              onClick={() => handleCategory(cat)}
+              className={`our-menu-cat-btn${activeCatIdx === i ? " active" : ""}`}
+              onClick={() => { setActiveCatIdx(i); setPage(0); }}
             >
               {cat}
             </button>
@@ -276,7 +269,7 @@ function OurMenuSection() {
         </div>
       </div>
       <div className="our-menu-footer">
-        <Link to="/menu" className="our-menu-see-more">See More</Link>
+        <Link to="/menu" className="our-menu-see-more">{t.ourMenu.seeMore}</Link>
       </div>
     </section>
   );
@@ -291,6 +284,7 @@ const testimonials = [
 ];
 
 function FeedbackSection() {
+  const { t } = useLanguage();
   const [start, setStart] = useState(0);
   const visible = 3;
   const total = testimonials.length;
@@ -301,8 +295,8 @@ function FeedbackSection() {
         {/* Testimonials */}
         <div className="feedback-header">
           <div className="feedback-header-left">
-            <span className="feedback-label">TESTIMONIAL</span>
-            <h2 className="feedback-heading">What Our Guests Say</h2>
+            <span className="feedback-label">{t.testimonials.label}</span>
+            <h2 className="feedback-heading">{t.testimonials.heading}</h2>
           </div>
           <div className="feedback-arrows">
             <button className="feedback-arrow" onClick={() => setStart((start - 1 + total) % total)} aria-label="Previous">
@@ -315,20 +309,20 @@ function FeedbackSection() {
         </div>
         <div className="feedback-cards">
           {Array.from({ length: visible }).map((_, i) => {
-            const t = testimonials[(start + i) % total];
+            const testimonial = testimonials[(start + i) % total];
             return (
-              <div key={t.name} className="feedback-card">
+              <div key={testimonial.name} className="feedback-card">
                 <div className="feedback-card-top">
-                  <div className="feedback-avatar" style={{ background: t.color }}>
-                    {t.name.charAt(0)}
+                  <div className="feedback-avatar" style={{ background: testimonial.color }}>
+                    {testimonial.name.charAt(0)}
                   </div>
                   <div>
-                    <p className="feedback-name">{t.name}</p>
-                    <p className="feedback-role">{t.role}</p>
+                    <p className="feedback-name">{testimonial.name}</p>
+                    <p className="feedback-role">{testimonial.role}</p>
                   </div>
                   <svg className="feedback-quote" width="32" height="32" viewBox="0 0 24 24" fill="#f39c45" aria-hidden="true"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
                 </div>
-                <p className="feedback-text">{t.text}</p>
+                <p className="feedback-text">{testimonial.text}</p>
               </div>
             );
           })}
@@ -348,15 +342,8 @@ function FeedbackSection() {
   );
 }
 
-const faqItems = [
-  { q: "Do I need to make a reservation?", a: "Yes, we recommend making a reservation to ensure you get a table, especially during weekends and holidays. You can book online or call us directly." },
-  { q: "Do you offer vegetarian or vegan options?", a: "Yes, we have a variety of vegetarian and vegan dishes available. Please check our menu for more details." },
-  { q: "Is parking available?", a: "Yes, there is free parking available near the restaurant. Street parking is also available on nearby streets." },
-  { q: "Do you host private events?", a: "Absolutely! We offer private dining and event hosting. Please contact us to discuss your requirements and availability." },
-  { q: "What are your opening hours?", a: "MA–TO 10:30–20:30 | PE 10:30–21:30 | LA 11:00–21:30 | SU 12:00–19:00" },
-];
-
 function FAQSection() {
+  const { t } = useLanguage();
   const [open, setOpen] = useState<number | null>(0);
   return (
     <section className="faq-section">
@@ -365,9 +352,9 @@ function FAQSection() {
           <span className="faq-label">FAQ</span>
           <span className="faq-label-line"></span>
         </div>
-        <h2 className="faq-heading">Frequently Asked Questions</h2>
+        <h2 className="faq-heading">{t.faq.heading}</h2>
         <div className="faq-list">
-          {faqItems.map((item, i) => (
+          {t.faq.items.map((item, i) => (
             <div key={i} className={`faq-item${open === i ? " faq-item--open" : ""}`}>
               <button className="faq-question" onClick={() => setOpen(open === i ? null : i)}>
                 <span>{item.q}</span>
@@ -385,14 +372,15 @@ function FAQSection() {
 }
 
 function BookingBanner() {
+  const { t } = useLanguage();
   return (
     <section className="booking-banner" style={{ backgroundImage: `url('${bookingBg}')` }}>
       <div className="booking-banner-card">
-        <h2 className="booking-banner-heading">Book Your Dining Experience Today!</h2>
-        <p className="booking-banner-sub">Unlock a Culinary Journey Like No Other at <span className="booking-banner-brand">MAIDO</span></p>
+        <h2 className="booking-banner-heading">{t.bookingBanner.heading}</h2>
+        <p className="booking-banner-sub">{t.bookingBanner.sub} <span className="booking-banner-brand">MAIDO</span></p>
         <div className="booking-banner-form">
-          <input className="booking-banner-input" type="email" placeholder="Enter your email address" />
-          <Link to="/booking" className="booking-banner-btn">Reserve Now</Link>
+          <input className="booking-banner-input" type="email" placeholder={t.bookingBanner.placeholder} />
+          <Link to="/booking" className="booking-banner-btn">{t.bookingBanner.cta}</Link>
         </div>
       </div>
     </section>
@@ -400,19 +388,15 @@ function BookingBanner() {
 }
 
 function OurServiceSection() {
+  const { t } = useLanguage();
   return (
     <section className="our-service-section">
       <div className="our-service-inner">
         <div className="our-service-text">
           <h2 className="our-service-heading">
-            Our <span className="our-service-highlight">MAIDO</span><br />Restaurant Service
+            {t.service.heading1}<span className="our-service-highlight">MAIDO</span><br />{t.service.heading2}
           </h2>
-          <p className="our-service-desc">
-            Food, substance consisting essentially of protein, carbohydrate, fat, and other
-            nutrients used in the body of an organism to sustain growth and vital processes
-            and to furnish energy. The absorption and utilization of food by the body is
-            fundamental to nutrition and is facilitated by digestion.
-          </p>
+          <p className="our-service-desc">{t.service.desc}</p>
         </div>
         <div className="our-service-photo-wrap">
           <div className="our-service-circle-bg"></div>

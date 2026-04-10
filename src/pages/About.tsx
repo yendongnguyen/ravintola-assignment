@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useLanguage } from "../i18n/LanguageContext";
 import LazyImage from "../components/LazyImage";
 import heroBg from "../assets/hero/about-photo-bar.jpeg";
 import chefPhoto from "../assets/hero/our-service-staff.png";
@@ -47,6 +48,7 @@ type BookingForm = { firstName: string; lastName: string; phone: string; email: 
 const emptyBooking: BookingForm = { firstName: "", lastName: "", phone: "", email: "", address: "", guests: "", time: "", date: "" };
 
 function AboutPage() {
+  const { t } = useLanguage();
   const [teamIdx, setTeamIdx] = useState(0);
   const member = team[teamIdx];
   const [booking, setBooking] = useState<BookingForm>(emptyBooking);
@@ -64,9 +66,9 @@ function AboutPage() {
             About <span className="about-hero-accent">MAIDO</span>
           </h1>
           <p className="about-hero-desc">
-            Founded in 2025, MAIDO is dedicated to providing an exceptional dining experience through innovative cuisine and impeccable service. Our mission is to delight your taste buds and create unforgettable memories.
+            {t.aboutPage.heroDesc}
           </p>
-          <Link to="/booking" className="about-hero-btn">Reserve Your Table</Link>
+          <Link to="/booking" className="about-hero-btn">{t.aboutPage.heroBtn}</Link>
         </div>
         <div className="about-hero-right">
           <LazyImage src={heroBg} alt="MAIDO Restaurant" className="about-hero-photo" />
@@ -85,10 +87,10 @@ function AboutPage() {
           </div>
           <div className="about-service-card">
             <div className="about-service-label-row">
-              <span className="about-service-label">EMPLOYEE PROFILE</span>
+              <span className="about-service-label">{t.aboutPage.employeeLabel}</span>
               <span className="about-service-label-line"></span>
             </div>
-            <h2 className="about-service-heading">Our Service</h2>
+            <h2 className="about-service-heading">{t.aboutPage.serviceHeading}</h2>
             <p className="about-service-name">{member.name}</p>
             <Stars count={member.stars} />
             <p className="about-service-desc">"{member.desc}"</p>
@@ -115,10 +117,10 @@ function AboutPage() {
       {/* ── Our Gallery ──────────────────────────────── */}
       <section className="about-gallery-section">
         <div className="about-gallery-label-row">
-          <span className="about-gallery-label">GALLERY</span>
+          <span className="about-gallery-label">{t.aboutPage.galleryLabel}</span>
           <span className="about-gallery-label-line"></span>
         </div>
-        <h2 className="about-gallery-heading">Our Gallery</h2>
+        <h2 className="about-gallery-heading">{t.aboutPage.galleryHeading}</h2>
         <div className="about-gallery-grid">
           {galleryImages.map((src, i) => (
             <div key={i} className="about-gallery-item">
@@ -132,46 +134,46 @@ function AboutPage() {
       <section className="about-booking-section">
         <div className="about-booking-inner">
           <div className="about-booking-form-wrap">
-            <h2 className="about-booking-heading">Table Booking</h2>
-{bookingDone && <p className="ab-success">Reservation received! We'll confirm your table shortly.</p>}
+            <h2 className="about-booking-heading">{t.aboutPage.bookingHeading}</h2>
+{bookingDone && <p className="ab-success">{t.aboutPage.bookingSuccess}</p>}
             <form className="about-booking-form" onSubmit={handleBooking}>
               <div className="ab-row-2">
                 <div className="ab-field">
-                  <label className="ab-label">First Name</label>
-                  <input className="ab-input" placeholder="Input your first name" value={booking.firstName} onChange={setB("firstName")} required />
+                  <label className="ab-label">{t.form.firstName}</label>
+                  <input className="ab-input" placeholder={t.form.firstNamePh} value={booking.firstName} onChange={setB("firstName")} required />
                 </div>
                 <div className="ab-field">
-                  <label className="ab-label">Last Name</label>
-                  <input className="ab-input" placeholder="Input your last name" value={booking.lastName} onChange={setB("lastName")} required />
+                  <label className="ab-label">{t.form.lastName}</label>
+                  <input className="ab-input" placeholder={t.form.lastNamePh} value={booking.lastName} onChange={setB("lastName")} required />
                 </div>
               </div>
               <div className="ab-field">
-                <label className="ab-label">Phone Number</label>
-                <input className="ab-input" placeholder="Input your phone number" value={booking.phone} onChange={setB("phone")} required />
+                <label className="ab-label">{t.form.phone}</label>
+                <input className="ab-input" placeholder={t.form.phonePh} value={booking.phone} onChange={setB("phone")} required />
               </div>
               <div className="ab-field">
-                <label className="ab-label">Email</label>
-                <input type="email" className="ab-input" placeholder="Input your email" value={booking.email} onChange={setB("email")} required />
+                <label className="ab-label">{t.form.email}</label>
+                <input type="email" className="ab-input" placeholder={t.form.emailPh} value={booking.email} onChange={setB("email")} required />
               </div>
               <div className="ab-field">
-                <label className="ab-label">Address</label>
-                <input className="ab-input" placeholder="Input your address" value={booking.address} onChange={setB("address")} />
+                <label className="ab-label">{t.form.address}</label>
+                <input className="ab-input" placeholder={t.form.addressPh} value={booking.address} onChange={setB("address")} />
               </div>
               <div className="ab-row-3">
                 <div className="ab-field">
-                  <label className="ab-label">Guests</label>
-                  <input type="number" min="1" className="ab-input" placeholder="Number of guests" value={booking.guests} onChange={setB("guests")} required />
+                  <label className="ab-label">{t.form.guests}</label>
+                  <input type="number" min="1" className="ab-input" placeholder={t.form.guestsPh} value={booking.guests} onChange={setB("guests")} required />
                 </div>
                 <div className="ab-field">
-                  <label className="ab-label">Time</label>
+                  <label className="ab-label">{t.form.time}</label>
                   <input type="time" className="ab-input" value={booking.time} onChange={setB("time")} required />
                 </div>
                 <div className="ab-field">
-                  <label className="ab-label">Date</label>
+                  <label className="ab-label">{t.form.date}</label>
                   <input type="date" className="ab-input" value={booking.date} onChange={setB("date")} required />
                 </div>
               </div>
-              <button type="submit" className="ab-submit">Reserve</button>
+              <button type="submit" className="ab-submit">{t.aboutPage.reserve}</button>
             </form>
           </div>
           <div className="about-booking-photo">

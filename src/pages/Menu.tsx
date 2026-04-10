@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useLanguage } from "../i18n/LanguageContext";
 import LazyBgDiv from "../components/LazyBgDiv";
 import menuTeppanjaki from "../assets/hero/our-menu-teppanjaki.jpeg";
 import menuSushi from "../assets/hero/our-menu-sushi.jpeg";
@@ -59,18 +60,34 @@ const menuSections: {
 ];
 
 function MenuPage() {
+  const { t } = useLanguage();
+
+  const catLabelMap: Record<string, string> = {
+    'Main Courses': t.ourMenu.categories[0],
+    'Appetizers': t.ourMenu.categories[1],
+    'Beverages': t.ourMenu.categories[2],
+    'Desserts': t.ourMenu.categories[3],
+  };
+
+  const popCats = [
+    { key: 'Appetizers' as const, label: t.ourMenu.categories[1] },
+    { key: 'Main Courses' as const, label: t.ourMenu.categories[0] },
+    { key: 'Desserts' as const, label: t.ourMenu.categories[3] },
+    { key: 'Beverages' as const, label: t.ourMenu.categories[2] },
+  ];
+
   return (
     <div className="menu-page">
       {/* ── Hero Header ─────────────────────────────── */}
       <section className="menu-hero" style={{ backgroundImage: `url('${heroBg}')` }}>
         <div className="menu-hero-content">
           <div className="menu-hero-label-row">
-            <span className="menu-hero-label">ORDER</span>
+            <span className="menu-hero-label">{t.menuPage.heroLabel}</span>
             <span className="menu-hero-label-line"></span>
           </div>
-          <h1 className="menu-hero-heading">Our Exquisite Menu</h1>
-          <p className="menu-hero-sub">Enjoy the best from MAIDO — fresh, vibrant and full of flavor</p>
-          <Link to="/booking" className="menu-hero-btn">Booking Now</Link>
+          <h1 className="menu-hero-heading">{t.menuPage.heroHeading}</h1>
+          <p className="menu-hero-sub">{t.menuPage.heroSub}</p>
+          <Link to="/booking" className="menu-hero-btn">{t.menuPage.heroBtn}</Link>
         </div>
       </section>
 
@@ -78,19 +95,19 @@ function MenuPage() {
       <section className="menu-categories-section">
         <div className="menu-categories-inner">
           <div className="menu-cat-label-row">
-            <span className="menu-cat-label">CUSTOMER FAVORITES</span>
+            <span className="menu-cat-label">{t.menuPage.catLabel}</span>
             <span className="menu-cat-label-line"></span>
           </div>
-          <h2 className="menu-cat-heading">Popular Categories</h2>
+          <h2 className="menu-cat-heading">{t.menuPage.catHeading}</h2>
           <div className="menu-cat-grid">
-            {(["Appetizers", "Main Courses", "Desserts", "Beverages"] as const).map((cat) => (
-              <div key={cat} className="menu-cat-card">
-                <LazyBgDiv bgUrl={catImages[cat]} className="menu-cat-img" />
-                <p className="menu-cat-name">{cat}</p>
+            {popCats.map(({ key, label }) => (
+              <div key={key} className="menu-cat-card">
+                <LazyBgDiv bgUrl={catImages[key]} className="menu-cat-img" />
+                <p className="menu-cat-name">{label}</p>
               </div>
             ))}
           </div>
-          <Link to="#our-menu" className="menu-cat-see-more">See More</Link>
+          <Link to="#our-menu" className="menu-cat-see-more">{t.menuPage.catSeeMore}</Link>
         </div>
       </section>
 
@@ -98,13 +115,13 @@ function MenuPage() {
       <section className="menu-main-section" id="our-menu">
         <div className="menu-main-inner">
           <div className="menu-main-label-row">
-            <span className="menu-main-label">OUR MENU</span>
+            <span className="menu-main-label">{t.menuPage.menuLabel}</span>
             <span className="menu-main-label-line"></span>
           </div>
-          <h2 className="menu-main-heading">Our Exquisite Menu</h2>
+          <h2 className="menu-main-heading">{t.menuPage.menuHeading}</h2>
           {menuSections.map((section) => (
             <div key={section.category} className="menu-section-block">
-              <h3 className="menu-section-title">{section.category}</h3>
+              <h3 className="menu-section-title">{catLabelMap[section.category] ?? section.category}</h3>
               <div className="menu-items-grid">
                 {section.items.map((item) => (
                   <div key={item.name} className="menu-item-card">

@@ -1,4 +1,5 @@
 import { FormEvent, useState } from "react";
+import { useLanguage } from "../i18n/LanguageContext";
 import heroBg from "../assets/hero/background-booking.jpg";
 
 type FormValues = {
@@ -24,6 +25,7 @@ const initial: FormValues = {
 };
 
 function BookingPage() {
+  const { t } = useLanguage();
   const [values, setValues] = useState(initial);
   const [errors, setErrors] = useState<Partial<FormValues>>({});
   const [submitted, setSubmitted] = useState(false);
@@ -34,13 +36,13 @@ function BookingPage() {
 
   const validate = (): Partial<FormValues> => {
     const err: Partial<FormValues> = {};
-    if (!values.firstName.trim()) err.firstName = "Required";
-    if (!values.lastName.trim()) err.lastName = "Required";
-    if (!values.phone.trim()) err.phone = "Required";
-    if (!values.email.trim()) err.email = "Required";
-    if (!values.guests.trim()) err.guests = "Required";
-    if (!values.time) err.time = "Required";
-    if (!values.date) err.date = "Required";
+    if (!values.firstName.trim()) err.firstName = t.bookingPage.required;
+    if (!values.lastName.trim()) err.lastName = t.bookingPage.required;
+    if (!values.phone.trim()) err.phone = t.bookingPage.required;
+    if (!values.email.trim()) err.email = t.bookingPage.required;
+    if (!values.guests.trim()) err.guests = t.bookingPage.required;
+    if (!values.time) err.time = t.bookingPage.required;
+    if (!values.date) err.date = t.bookingPage.required;
     return err;
   };
 
@@ -63,11 +65,11 @@ function BookingPage() {
       <section className="reservation-hero">
         <div className="reservation-hero-left">
           <div className="reservation-hero-label-row">
-            <span className="reservation-hero-label">RESERVE</span>
+            <span className="reservation-hero-label">{t.bookingPage.heroLabel}</span>
             <span className="reservation-hero-line"></span>
           </div>
-          <h1 className="reservation-hero-heading">Reserve Your Table</h1>
-          <p className="reservation-hero-sub">Book Your Dining Experience at MAIDO</p>
+          <h1 className="reservation-hero-heading">{t.bookingPage.heroHeading}</h1>
+          <p className="reservation-hero-sub">{t.bookingPage.heroSub}</p>
         </div>
         <div className="reservation-hero-right">
           <img src={heroBg} alt="MAIDO Restaurant" className="reservation-hero-photo" />
@@ -78,14 +80,14 @@ function BookingPage() {
       <section className="reservation-form-section">
         <div className="reservation-form-inner">
           <div className="reservation-form-label-row">
-            <span className="reservation-form-tag">FORM</span>
+            <span className="reservation-form-tag">{t.bookingPage.formLabel}</span>
             <span className="reservation-form-tag-line"></span>
           </div>
-          <h2 className="reservation-form-heading">Online Booking Form</h2>
+          <h2 className="reservation-form-heading">{t.bookingPage.formHeading}</h2>
 
           {submitted && (
             <p className="reservation-success" role="status">
-              Reservation received! We'll confirm your table shortly.
+              {t.bookingPage.success}
             </p>
           )}
 
@@ -93,58 +95,58 @@ function BookingPage() {
             {/* Row 1: First + Last Name */}
             <div className="rf-row rf-row-2">
               <div className="rf-field">
-                <label className="rf-label">First Name</label>
-                <input className={`rf-input${errors.firstName ? " rf-input--err" : ""}`} placeholder="Input your first name" value={values.firstName} onChange={set("firstName")} disabled={sending} />
+                <label className="rf-label">{t.bookingPage.firstName}</label>
+                <input className={`rf-input${errors.firstName ? " rf-input--err" : ""}`} placeholder={t.bookingPage.firstNamePh} value={values.firstName} onChange={set("firstName")} disabled={sending} />
                 {errors.firstName && <span className="rf-err">{errors.firstName}</span>}
               </div>
               <div className="rf-field">
-                <label className="rf-label">Last Name</label>
-                <input className={`rf-input${errors.lastName ? " rf-input--err" : ""}`} placeholder="Input your last name" value={values.lastName} onChange={set("lastName")} disabled={sending} />
+                <label className="rf-label">{t.bookingPage.lastName}</label>
+                <input className={`rf-input${errors.lastName ? " rf-input--err" : ""}`} placeholder={t.bookingPage.lastNamePh} value={values.lastName} onChange={set("lastName")} disabled={sending} />
                 {errors.lastName && <span className="rf-err">{errors.lastName}</span>}
               </div>
             </div>
 
             {/* Phone */}
             <div className="rf-field">
-              <label className="rf-label">Phone Number</label>
-              <input className={`rf-input${errors.phone ? " rf-input--err" : ""}`} placeholder="Input your phone number" value={values.phone} onChange={set("phone")} disabled={sending} />
+              <label className="rf-label">{t.bookingPage.phone}</label>
+              <input className={`rf-input${errors.phone ? " rf-input--err" : ""}`} placeholder={t.bookingPage.phonePh} value={values.phone} onChange={set("phone")} disabled={sending} />
               {errors.phone && <span className="rf-err">{errors.phone}</span>}
             </div>
 
             {/* Email */}
             <div className="rf-field">
-              <label className="rf-label">Email</label>
-              <input type="email" className={`rf-input${errors.email ? " rf-input--err" : ""}`} placeholder="Input your email" value={values.email} onChange={set("email")} disabled={sending} />
+              <label className="rf-label">{t.bookingPage.email}</label>
+              <input type="email" className={`rf-input${errors.email ? " rf-input--err" : ""}`} placeholder={t.bookingPage.emailPh} value={values.email} onChange={set("email")} disabled={sending} />
               {errors.email && <span className="rf-err">{errors.email}</span>}
             </div>
 
             {/* Address */}
             <div className="rf-field">
-              <label className="rf-label">Address</label>
-              <input className="rf-input" placeholder="Input your address" value={values.address} onChange={set("address")} disabled={sending} />
+              <label className="rf-label">{t.bookingPage.address}</label>
+              <input className="rf-input" placeholder={t.bookingPage.addressPh} value={values.address} onChange={set("address")} disabled={sending} />
             </div>
 
             {/* Row 2: Guests + Time + Date */}
             <div className="rf-row rf-row-3">
               <div className="rf-field">
-                <label className="rf-label">Guests</label>
-                <input className={`rf-input${errors.guests ? " rf-input--err" : ""}`} placeholder="Input number" value={values.guests} onChange={set("guests")} disabled={sending} />
+                <label className="rf-label">{t.bookingPage.guests}</label>
+                <input className={`rf-input${errors.guests ? " rf-input--err" : ""}`} placeholder={t.bookingPage.guestsPh} value={values.guests} onChange={set("guests")} disabled={sending} />
                 {errors.guests && <span className="rf-err">{errors.guests}</span>}
               </div>
               <div className="rf-field">
-                <label className="rf-label">Time</label>
-                <input type="time" className={`rf-input${errors.time ? " rf-input--err" : ""}`} placeholder="Input time" value={values.time} onChange={set("time")} disabled={sending} />
+                <label className="rf-label">{t.bookingPage.time}</label>
+                <input type="time" className={`rf-input${errors.time ? " rf-input--err" : ""}`} value={values.time} onChange={set("time")} disabled={sending} />
                 {errors.time && <span className="rf-err">{errors.time}</span>}
               </div>
               <div className="rf-field">
-                <label className="rf-label">Date</label>
-                <input type="date" className={`rf-input${errors.date ? " rf-input--err" : ""}`} placeholder="Input date" value={values.date} onChange={set("date")} disabled={sending} />
+                <label className="rf-label">{t.bookingPage.date}</label>
+                <input type="date" className={`rf-input${errors.date ? " rf-input--err" : ""}`} value={values.date} onChange={set("date")} disabled={sending} />
                 {errors.date && <span className="rf-err">{errors.date}</span>}
               </div>
             </div>
 
             <button type="submit" className="rf-submit" disabled={sending}>
-              {sending ? "Sending…" : "Reserve"}
+              {sending ? t.bookingPage.sending : t.bookingPage.reserve}
             </button>
           </form>
         </div>
@@ -155,12 +157,12 @@ function BookingPage() {
         <div className="reservation-contact-inner">
           <div className="reservation-contact-left">
             <div className="reservation-contact-label-row">
-              <span className="reservation-contact-tag">CONTACT</span>
+              <span className="reservation-contact-tag">{t.bookingPage.contactLabel}</span>
               <span className="reservation-contact-tag-line"></span>
             </div>
-            <h2 className="reservation-contact-heading">Let's Talk With Us</h2>
+            <h2 className="reservation-contact-heading">{t.bookingPage.contactHeading}</h2>
             <p className="reservation-contact-desc">
-              Whether you're looking to schedule a service appointment, request a quote, or inquire about our services, we're ready to assist you.
+              {t.bookingPage.contactDesc}
             </p>
             <div className="reservation-contact-items">
               <div className="reservation-contact-item">

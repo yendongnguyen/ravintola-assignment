@@ -58,6 +58,49 @@ html {
   animation: none;
 }
 
+/* Language toggle */
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+  padding: 3px 10px;
+}
+
+.lang-btn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  padding: 2px 5px;
+  border-radius: 999px;
+  transition: color 0.2s;
+}
+
+.lang-btn:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.lang-btn--active {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.lang-divider {
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 0.75rem;
+  user-select: none;
+}
+
+.lang-toggle--mobile {
+  margin-top: 0.5rem;
+  justify-content: center;
+}
+
 body {
   margin: 0;
   font-family: "Manrope", sans-serif;
