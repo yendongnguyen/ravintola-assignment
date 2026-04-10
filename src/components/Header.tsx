@@ -23,9 +23,9 @@ function Header() {
           <NavLink to="/booking" onClick={() => setOpen(false)}>
             {t.nav.booking}
           </NavLink>
-          <a href="#pricing" onClick={() => setOpen(false)}>
+          <NavLink to="/pricing" onClick={() => setOpen(false)}>
             {t.nav.pricing}
-          </a>
+          </NavLink>
           <NavLink to="/about" onClick={() => setOpen(false)}>
             {t.nav.about}
           </NavLink>
@@ -69,9 +69,9 @@ function Header() {
         <NavLink to="/booking" onClick={() => setOpen(false)}>
           {t.nav.booking}
         </NavLink>
-        <a href="#pricing" onClick={() => setOpen(false)}>
+        <NavLink to="/pricing" onClick={() => setOpen(false)}>
           {t.nav.pricing}
-        </a>
+        </NavLink>
         <NavLink to="/about" onClick={() => setOpen(false)}>
           {t.nav.about}
         </NavLink>

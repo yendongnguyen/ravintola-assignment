@@ -5,16 +5,18 @@ import LazyImage from "../components/LazyImage";
 import heroBg from "../assets/hero/about-photo-bar.jpeg";
 import chefPhoto from "../assets/hero/our-service-staff.png";
 import waiterPhoto from "../assets/hero/background-booking.jpg";
+import gallery1 from "../assets/hero/our-gallery-1.jpeg";
+import gallery2 from "../assets/hero/our-gallery-2.jpeg";
+import gallery3 from "../assets/hero/our-gallery-3.jpeg";
+import gallery4 from "../assets/hero/our-gallery-13.jpeg";
+import gallery5 from "../assets/hero/our-gallery-33.jpeg";
+import gallery6 from "../assets/hero/our-gallery-32.jpeg";
+import gallery7 from "../assets/hero/our-gallery-34.jpeg";
+import gallery8 from "../assets/hero/our-gallery-14.jpeg";
 
 const galleryImages = [
-  "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&h=280&fit=crop&auto=format",
-  "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&h=280&fit=crop&auto=format",
-  "https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=400&h=280&fit=crop&auto=format",
-  "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=400&h=280&fit=crop&auto=format",
-  "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=400&h=280&fit=crop&auto=format",
-  "https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=400&h=280&fit=crop&auto=format",
-  "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&h=280&fit=crop&auto=format",
-  "https://images.unsplash.com/photo-1600891964092-4316c288032e?w=400&h=280&fit=crop&auto=format",
+  gallery1, gallery2, gallery3, gallery4,
+  gallery5, gallery6, gallery7, gallery8,
 ];
 
 const team = [

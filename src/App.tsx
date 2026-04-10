@@ -6,6 +6,7 @@ import HomePage from "./pages/Home";
 import BookingPage from "./pages/Booking";
 import AboutPage from "./pages/About";
 import MenuPage from "./pages/Menu";
+import PricingPage from "./pages/Pricing";
 import Footer from "./components/Footer";
 
 function ScrollToTop() {
@@ -55,6 +56,7 @@ function App() {
           <Route path="/booking" element={<BookingPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/menu" element={<MenuPage />} />
+          <Route path="/pricing" element={<PricingPage />} />
         </Routes>
       </main>
       <Footer />

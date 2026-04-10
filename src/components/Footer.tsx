@@ -14,7 +14,7 @@ function Footer() {
           <Link to="/" className="footer-link">{t.nav.home}</Link>
           <Link to="/menu" className="footer-link">{t.nav.menu}</Link>
           <Link to="/booking" className="footer-link">{t.nav.booking}</Link>
-          <a href="#pricing" className="footer-link">{t.nav.pricing}</a>
+          <Link to="/pricing" className="footer-link">{t.nav.pricing}</Link>
           <Link to="/about" className="footer-link">{t.nav.about}</Link>
         </div>
 
