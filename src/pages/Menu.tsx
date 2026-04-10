@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import LazyBgDiv from "../components/LazyBgDiv";
 import menuTeppanjaki from "../assets/hero/our-menu-teppanjaki.jpeg";
 import menuSushi from "../assets/hero/our-menu-sushi.jpeg";
 import menuSteamTable from "../assets/hero/our-menu-steam-table.jpeg";
@@ -84,7 +85,7 @@ function MenuPage() {
           <div className="menu-cat-grid">
             {(["Appetizers", "Main Courses", "Desserts", "Beverages"] as const).map((cat) => (
               <div key={cat} className="menu-cat-card">
-                <div className="menu-cat-img" style={{ backgroundImage: `url('${catImages[cat]}')` }}></div>
+                <LazyBgDiv bgUrl={catImages[cat]} className="menu-cat-img" />
                 <p className="menu-cat-name">{cat}</p>
               </div>
             ))}
@@ -107,9 +108,10 @@ function MenuPage() {
               <div className="menu-items-grid">
                 {section.items.map((item) => (
                   <div key={item.name} className="menu-item-card">
-                    <div
+                    <LazyBgDiv
+                      bgUrl={item.img}
                       className="menu-item-img"
-                      style={{ backgroundImage: `url('${item.img}')`, backgroundSize: "cover", backgroundPosition: "center" }}
+                      style={{ backgroundSize: "cover", backgroundPosition: "center" }}
                     />
                     <div className="menu-item-info">
                       <p className="menu-item-name">{item.name}</p>

@@ -1,5 +1,61 @@
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   box-sizing: border-box;
+}
+
+/* ── Scroll-reveal ───────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+
+/* ── Lazy loading & shimmer ─────────────────────── */
+@keyframes shimmer-slide {
+  from { background-position: -200% 0; }
+  to   { background-position:  200% 0; }
+}
+
+/* img lazy fade */
+.lazy-img {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.lazy-img--loaded {
+  opacity: 1;
+}
+.lazy-img:not(.lazy-img--loaded) {
+  background: linear-gradient(90deg, #ececec 25%, #f8f8f8 50%, #ececec 75%);
+  background-size: 200% 100%;
+  animation: shimmer-slide 1.5s ease-in-out infinite;
+}
+/* preserve hover-transform on gallery */
+.about-gallery-item .lazy-img {
+  transition: transform 0.3s, opacity 0.5s ease;
+}
+
+/* bg-div lazy shimmer */
+.lazy-bg:not(.lazy-bg--loaded) {
+  background: linear-gradient(90deg, #ececec 25%, #f8f8f8 50%, #ececec 75%);
+  background-size: 200% 100%;
+  animation: shimmer-slide 1.5s ease-in-out infinite;
+}
+.lazy-bg--loaded {
+  animation: none;
 }
 
 body {

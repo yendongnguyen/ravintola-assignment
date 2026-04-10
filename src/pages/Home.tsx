@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import LazyImage from "../components/LazyImage";
+import LazyBgDiv from "../components/LazyBgDiv";
 import saladBowl from "../assets/hero/salad bowl.png";
 import friedChicken from "../assets/hero/fried chicken.png";
 import bgImage from "../assets/hero/background.png";
@@ -83,11 +85,11 @@ function HomePage() {
       <section className="about-section" id="about" aria-labelledby="about-title">
         <div className="about-photos">
           <div className="about-photo-left">
-            <div className="about-photo-placeholder about-photo-bar" style={{ backgroundImage: `url('${barPhoto}')` }}></div>
+            <LazyBgDiv bgUrl={barPhoto} className="about-photo-placeholder about-photo-bar" />
           </div>
           <div className="about-photo-right">
-            <div className="about-photo-placeholder about-photo-food" style={{ backgroundImage: `url('${foodPhoto}')` }}></div>
-            <div className="about-photo-placeholder about-photo-buffet" style={{ backgroundImage: `url('${buffetPhoto}')` }}></div>
+            <LazyBgDiv bgUrl={foodPhoto} className="about-photo-placeholder about-photo-food" />
+            <LazyBgDiv bgUrl={buffetPhoto} className="about-photo-placeholder about-photo-buffet" />
           </div>
         </div>
         <div className="about-content">
@@ -137,7 +139,7 @@ function HomePage() {
           <h2 id="buffet-title" className="buffet-title">Our Buffet</h2>
         </div>
         <div className="buffet-body">
-          <div className="buffet-circle-photo buffet-photo-left" style={{ backgroundImage: `url('${buffetBeef}')` }}></div>
+          <LazyBgDiv bgUrl={buffetBeef} className="buffet-circle-photo buffet-photo-left" />
           <ul className="buffet-list">
             {[
               "Teppanjaki",
@@ -154,7 +156,7 @@ function HomePage() {
               </li>
             ))}
           </ul>
-          <div className="buffet-circle-photo buffet-photo-right" style={{ backgroundImage: `url('${buffetSalad}')` }}></div>
+          <LazyBgDiv bgUrl={buffetSalad} className="buffet-circle-photo buffet-photo-right" />
         </div>
       </section>
 
@@ -256,13 +258,15 @@ function OurMenuSection() {
         <div className="our-menu-grid">
           {items.slice(page * 6, page * 6 + 6).map((item) => (
             <Link to="/menu" key={item.name} className="our-menu-card">
-              <div
-                className="our-menu-card-img"
-                style={item.img
-                  ? { backgroundImage: `url('${item.img}')`, backgroundSize: "cover", backgroundPosition: "center" }
-                  : { background: item.color }
-                }
-              ></div>
+              {item.img ? (
+                <LazyBgDiv
+                  bgUrl={item.img}
+                  className="our-menu-card-img"
+                  style={{ backgroundSize: "cover", backgroundPosition: "center" }}
+                />
+              ) : (
+                <div className="our-menu-card-img" style={{ background: item.color }} />
+              )}
               <div className="our-menu-card-body">
                 <p className="our-menu-card-name">{item.name}</p>
                 <p className="our-menu-card-desc">{item.desc}</p>
@@ -412,7 +416,7 @@ function OurServiceSection() {
         </div>
         <div className="our-service-photo-wrap">
           <div className="our-service-circle-bg"></div>
-          <img src={serviceStaff} alt="Maido restaurant staff" className="our-service-photo" />
+          <LazyImage src={serviceStaff} alt="Maido restaurant staff" className="our-service-photo" />
         </div>
       </div>
     </section>

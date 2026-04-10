@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import LazyImage from "./LazyImage";
 import logo from "../assets/hero/logo-removebg.png";
 
 function Footer() {
@@ -17,7 +18,7 @@ function Footer() {
 
         {/* Brand */}
         <div className="footer-brand">
-          <img src={logo} alt="MAIDO" className="footer-logo" />
+          <LazyImage src={logo} alt="MAIDO" className="footer-logo" />
           <p className="footer-address">Kauppakatu 29, 70100 Kuopio</p>
           <p className="footer-address"><strong>AVOINNA</strong></p>
           <p className="footer-address">MA – TO klo 10:30 – 20:30</p>

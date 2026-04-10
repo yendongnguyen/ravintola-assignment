@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import LazyImage from "../components/LazyImage";
 import heroBg from "../assets/hero/about-photo-bar.jpeg";
 import chefPhoto from "../assets/hero/our-service-staff.png";
 import waiterPhoto from "../assets/hero/background-booking.jpg";
@@ -68,7 +69,7 @@ function AboutPage() {
           <Link to="/booking" className="about-hero-btn">Reserve Your Table</Link>
         </div>
         <div className="about-hero-right">
-          <img src={heroBg} alt="MAIDO Restaurant" className="about-hero-photo" />
+          <LazyImage src={heroBg} alt="MAIDO Restaurant" className="about-hero-photo" />
           <div className="about-hero-play">
             <svg viewBox="0 0 24 24" fill="white" width="28" height="28"><polygon points="5,3 19,12 5,21" /></svg>
           </div>
@@ -80,7 +81,7 @@ function AboutPage() {
         <div className="about-service-inner">
           <div className="about-service-left">
             <div className="about-service-shape"></div>
-            <img src={chefPhoto} alt="Chef" className="about-service-photo" />
+            <LazyImage src={chefPhoto} alt="Chef" className="about-service-photo" />
           </div>
           <div className="about-service-card">
             <div className="about-service-label-row">
@@ -121,7 +122,7 @@ function AboutPage() {
         <div className="about-gallery-grid">
           {galleryImages.map((src, i) => (
             <div key={i} className="about-gallery-item">
-              <img src={src} alt={`Gallery ${i + 1}`} loading="lazy" />
+              <LazyImage src={src} alt={`Gallery ${i + 1}`} />
             </div>
           ))}
         </div>
@@ -174,7 +175,7 @@ function AboutPage() {
             </form>
           </div>
           <div className="about-booking-photo">
-            <img src={waiterPhoto} alt="Restaurant service" />
+            <LazyImage src={waiterPhoto} alt="Restaurant service" />
           </div>
         </div>
       </section>

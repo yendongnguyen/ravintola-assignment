@@ -13,10 +13,39 @@ function ScrollToTop() {
   return null;
 }
 
+function ScrollReveal() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    const targets = document.querySelectorAll(
+      "section, .about-section, .buffet-section, .menu-section, .service-section, " +
+      ".feedback-section, .booking-section, .essentials-strip, .card, " +
+      ".menu-category-card, .buffet-item, .about-stat"
+    );
+    targets.forEach((el) => el.classList.add("reveal"));
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("reveal-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+
+    targets.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, [pathname]);
+  return null;
+}
+
 function App() {
   return (
     <div className="site-shell">
       <ScrollToTop />
+      <ScrollReveal />
       <Header />
       <main>
         <Routes>
