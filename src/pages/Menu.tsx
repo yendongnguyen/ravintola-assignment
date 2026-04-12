@@ -54,7 +54,7 @@ const menuSections: {
     items: [
       { name: "Chocolate Lava Cake", desc: "Rich chocolate cake with a molten center, served with vanilla ice cream.", img: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400&h=300&fit=crop&auto=format" },
       { name: "Crème Brûlée", desc: "Classic vanilla custard with a caramelized sugar crust.", img: "https://images.unsplash.com/photo-1470124182917-cc6e71b22ecc?w=400&h=300&fit=crop&auto=format" },
-      { name: "Ice Cream", desc: "Creamy, sweet, frozen treat bringing joy and delight.", img: "https://images.unsplash.com/photo-1567206563114-c179bba23a4b?w=400&h=300&fit=crop&auto=format" },
+      { name: "Ice Cream", desc: "Creamy, sweet, frozen treat bringing joy and delight.", img: "https://images.unsplash.com/photo-1629636089563-0a47bcebf0c4?w=400&h=300&fit=crop&auto=format" },
     ],
   },
 ];
