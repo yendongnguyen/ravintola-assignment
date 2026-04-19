@@ -1,9 +1,15 @@
 node_modules
 dist
 .DS_Store
+.vscode/
+__blobstorage__/
+*.tsbuildinfo
+*.zip
 *.local
 .env
 .env.local
+.env.production
+local.settings.json
 .vscode-test
 *.log
 .deployvars
