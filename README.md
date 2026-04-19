@@ -1,3 +1,8 @@
+Note:
+1. This public repository is an academic submission version of the Ravintola project.
+The original working repository remains private because it contains business-related configuration and environment-specific deployment details for a real restaurant use case. Sensitive information has been removed or replaced in this public version while preserving the implementation, architecture, and commit history relevant for assessment.
+2. Deployment automation was intentionally removed from this public academic submission repository because the original production deployment uses private Azure deployment credentials and infrastructure-specific configuration.
+
 # MAIDO Ravintola
 
 Mobile-first restaurant website for MAIDO Ravintola in Kuopio. The site focuses on a simple menu-to-booking journey for non-tech-savvy users.
