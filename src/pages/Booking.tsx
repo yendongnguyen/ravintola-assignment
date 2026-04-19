@@ -1,5 +1,6 @@
 import { FormEvent, useState } from "react";
 import { useLanguage } from "../i18n/LanguageContext";
+import api from "../config/api";
 import heroBg from "../assets/hero/background-booking.jpg";
 
 type FormValues = {
@@ -30,6 +31,7 @@ function BookingPage() {
   const [errors, setErrors] = useState<Partial<FormValues>>({});
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const set = (field: keyof FormValues) => (e: React.ChangeEvent<HTMLInputElement>) =>
     setValues((prev) => ({ ...prev, [field]: e.target.value }));
@@ -46,17 +48,49 @@ function BookingPage() {
     return err;
   };
 
-  const onSubmit = (e: FormEvent) => {
+  const onSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    setSubmitted(false);
+    setSubmitError(null);
+
     const err = validate();
     setErrors(err);
     if (Object.keys(err).length > 0) return;
+
     setSending(true);
-    setTimeout(() => {
+
+    try {
+      const response = await fetch(api.endpoints.bookings, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          firstName: values.firstName,
+          lastName: values.lastName,
+          phone: values.phone,
+          email: values.email,
+          address: values.address,
+          guests: Number(values.guests),
+          time: values.time,
+          date: values.date
+        })
+      });
+
+      if (!response.ok) {
+        const payload = (await response.json().catch(() => null)) as { details?: string[] } | null;
+        const detailMessage = payload?.details?.[0];
+        setSubmitError(detailMessage ?? t.bookingPage.submitFailed);
+        return;
+      }
+
       setValues(initial);
-      setSending(false);
       setSubmitted(true);
-    }, 400);
+    } catch {
+      setSubmitError(t.bookingPage.submitNetworkError);
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -88,6 +122,12 @@ function BookingPage() {
           {submitted && (
             <p className="reservation-success" role="status">
               {t.bookingPage.success}
+            </p>
+          )}
+
+          {submitError && (
+            <p className="reservation-error" role="alert">
+              {submitError}
             </p>
           )}
 

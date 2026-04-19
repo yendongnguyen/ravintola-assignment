@@ -1,0 +1,13 @@
+*.js.map
+.git*
+.vscode
+__azurite_db*__.json
+__blobstorage__
+__queuestorage__
+local.settings.json
+src
+test
+publish
+_fc1package
+_fc1package.zip
+publish.zip

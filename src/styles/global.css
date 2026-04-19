@@ -377,6 +377,135 @@ main {
   color: var(--brand);
 }
 
+.admin-bookings-section {
+  margin-top: 6.5rem;
+  margin-bottom: 3rem;
+  padding: 1.5rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(17, 52, 2, 0.12);
+  box-shadow: 0 14px 30px rgba(20, 40, 25, 0.12);
+}
+
+.admin-bookings-header h1 {
+  margin: 0.15rem 0 0.35rem;
+}
+
+.admin-bookings-header p {
+  margin: 0;
+  color: rgba(17, 52, 2, 0.72);
+}
+
+.admin-bookings-label {
+  display: inline-block;
+  margin: 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  font-weight: 800;
+  color: rgba(17, 52, 2, 0.7);
+}
+
+.admin-bookings-auth {
+  margin-top: 1.25rem;
+}
+
+.admin-bookings-auth-label {
+  display: block;
+  margin-bottom: 0.45rem;
+  font-weight: 700;
+  color: rgba(17, 52, 2, 0.85);
+}
+
+.admin-bookings-auth-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.admin-bookings-auth-input {
+  flex: 1 1 260px;
+  min-width: 220px;
+  border: 1px solid rgba(17, 52, 2, 0.18);
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+  font: inherit;
+  background: #fff;
+}
+
+.admin-bookings-auth-button,
+.admin-bookings-lock-button {
+  border: none;
+  border-radius: 999px;
+  padding: 0.85rem 1.2rem;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.admin-bookings-auth-button {
+  background: var(--brand);
+  color: #fff;
+}
+
+.admin-bookings-lock-button {
+  background: rgba(17, 52, 2, 0.1);
+  color: var(--ink);
+}
+
+.admin-bookings-auth-button:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+.admin-bookings-state {
+  margin-top: 1rem;
+  font-weight: 600;
+}
+
+.admin-bookings-error {
+  margin-top: 1rem;
+  color: #a11f1f;
+  font-weight: 700;
+}
+
+.admin-bookings-table-wrap {
+  margin-top: 1.2rem;
+  overflow-x: auto;
+}
+
+.admin-bookings-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 820px;
+}
+
+.admin-bookings-table th,
+.admin-bookings-table td {
+  text-align: left;
+  padding: 0.7rem 0.55rem;
+  border-bottom: 1px solid rgba(17, 52, 2, 0.12);
+  vertical-align: top;
+}
+
+.admin-bookings-table thead th {
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(17, 52, 2, 0.72);
+  position: sticky;
+  top: 0;
+  background: #f4f7f2;
+}
+
+@media (max-width: 768px) {
+  .admin-bookings-section {
+    margin-top: 5.4rem;
+    padding: 1rem;
+    border-radius: 14px;
+  }
+}
+
 .hero-subtitle {
   margin: 1rem 0 1.5rem;
   font-size: 1.1rem;
@@ -2103,6 +2232,15 @@ button[type="submit"]:disabled {
 .reservation-success {
   background: rgba(29,110,55,0.12);
   color: #1a6e37;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.reservation-error {
+  background: rgba(176, 41, 41, 0.12);
+  color: #8e1b1b;
   border-radius: 10px;
   padding: 12px 16px;
   margin-bottom: 16px;

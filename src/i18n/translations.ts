@@ -8,6 +8,7 @@ export const translations = {
       booking: 'Book a Table',
       pricing: 'Pricing',
       about: 'About us',
+      admin: 'Admin',
     },
     hero: {
       line1: 'Savor the',
@@ -145,6 +146,8 @@ export const translations = {
       reserve: 'Reserve',
       sending: 'Sending…',
       required: 'Required',
+      submitFailed: 'Booking could not be saved. Please check your details and try again.',
+      submitNetworkError: 'Could not reach booking service. Please try again in a moment.',
       contactLabel: 'CONTACT',
       contactHeading: "Let's Talk With Us",
       contactDesc: "Whether you're looking to schedule a service appointment, request a quote, or inquire about our services, we're ready to assist you.",
@@ -174,6 +177,7 @@ export const translations = {
       booking: 'Varaa pöytä',
       pricing: 'Hinnasto',
       about: 'Tietoa meistä',
+      admin: 'Hallinta',
     },
     hero: {
       line1: 'Nauti',
@@ -311,6 +315,8 @@ export const translations = {
       reserve: 'Varaa',
       sending: 'Lähetetään…',
       required: 'Pakollinen',
+      submitFailed: 'Varausta ei voitu tallentaa. Tarkista tiedot ja yritä uudelleen.',
+      submitNetworkError: 'Varauspalveluun ei saatu yhteyttä. Yritä hetken kuluttua uudelleen.',
       contactLabel: 'YHTEYSTIEDOT',
       contactHeading: 'Ota yhteyttä',
       contactDesc: 'Haluatko varata ajan, pyytää tarjouksen tai kysyä palveluistamme? Olemme valmiita auttamaan sinua.',

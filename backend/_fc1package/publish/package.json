@@ -1,0 +1,27 @@
+{
+  "name": "maidoravintola-backend",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "dist/{index.js,functions/*.js}",
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "tsc -p tsconfig.json",
+    "watch": "tsc -w -p tsconfig.json",
+    "prestart": "npm run clean && npm run build",
+    "start:host": "node scripts/startHost.mjs",
+    "start": "npm run start:host",
+    "dev": "npm run start",
+    "db:init": "npm run clean && npm run build && node scripts/initSchema.mjs"
+  },
+  "dependencies": {
+    "@azure/functions": "^4.11.0",
+    "mysql2": "^3.14.3",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.1",
+    "rimraf": "^5.0.10",
+    "typescript": "^5.7.2"
+  }
+}

@@ -1,0 +1,4 @@
+RG=rg-maidoravintola-func
+SA=maidofunc04181548
+APP=func-maidoravintola-04181548
+LOCATION=westeurope

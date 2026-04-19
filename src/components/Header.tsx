@@ -29,6 +29,9 @@ function Header() {
           <NavLink to="/about" onClick={() => setOpen(false)}>
             {t.nav.about}
           </NavLink>
+          <NavLink to="/admin/bookings" onClick={() => setOpen(false)}>
+            {t.nav.admin}
+          </NavLink>
         </nav>
         <div className="header-actions">
           <div className="lang-toggle" role="group" aria-label="Select language">
@@ -74,6 +77,9 @@ function Header() {
         </NavLink>
         <NavLink to="/about" onClick={() => setOpen(false)}>
           {t.nav.about}
+        </NavLink>
+        <NavLink to="/admin/bookings" onClick={() => setOpen(false)}>
+          {t.nav.admin}
         </NavLink>
         <div className="lang-toggle lang-toggle--mobile" role="group" aria-label="Select language">
           <button

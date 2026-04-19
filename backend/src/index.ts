@@ -1,0 +1,8 @@
+import { app } from "@azure/functions";
+
+app.setup({
+  enableHttpStream: true
+});
+
+import "./functions/health.js";
+import "./functions/listBookings.js";

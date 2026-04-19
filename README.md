@@ -18,6 +18,7 @@ Mobile-first restaurant website for MAIDO Ravintola in Kuopio. The site focuses 
 - React + TypeScript + Vite
 - React Router
 - Vitest + Testing Library
+- Backend: Express + TypeScript
 
 ## Run Locally
 
@@ -44,6 +45,35 @@ Mobile-first restaurant website for MAIDO Ravintola in Kuopio. The site focuses 
    ```bash
    npm test
    ```
+
+## Backend Setup
+
+1. Install backend dependencies:
+
+   ```bash
+   npm install --prefix backend
+   ```
+
+2. Run backend only:
+
+   ```bash
+   npm run dev:backend
+   ```
+
+3. Run frontend + backend together:
+
+   ```bash
+   npm run dev:full
+   ```
+
+The frontend dev server proxies `/api` calls to `http://localhost:4000`.
+
+4. Configure backend database:
+
+   - Copy `backend/.env.example` to `backend/.env`
+   - Fill your Azure MySQL connection values
+   - Set `ADMIN_BOOKINGS_KEY` for the `/admin/bookings` screen
+   - Run SQL in `backend/sql/schema.sql`
 
 ## About Confirmation
 
