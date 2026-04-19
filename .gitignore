@@ -6,3 +6,7 @@ dist
 .env.local
 .vscode-test
 *.log
+.deployvars
+.deployvars.txt
+backend/.deployvars.txt
+backend/_fc1package/.deployvars.txt
